@@ -5,9 +5,9 @@ const line = require('@line/bot-sdk');
 const PORT = process.env.PORT || 3000;
 const getLBA = require('./libs/getlba');
 
-const config = require('./config') || {
-    channelSecret: process.env.LINE_SECRET,
-    channelAccessToken: process.env.LINE_TOKEN
+const config = {
+    channelSecret: process.env.LINE_SECRET || require('./config').channelSecret,
+    channelAccessToken: process.env.LINE_TOKEN || require('./config').channelAccessToken
 };
 
 const app = express();
@@ -33,7 +33,7 @@ async function handleEvent(event) {
     mes = `合計作品応募数: ${data.listCount} \n`;
     mes += `スキル作品応募数: ${data.skillCount} \n`;
     mes += `BOT作品応募数: ${data.botCount} \n`;
-    mes += `スキルかつBOT作品応募数: ${data.bothCount}`;
+    mes += `スキル&BOT作品応募数: ${data.bothCount}`;
   }
 
   return client.replyMessage(event.replyToken, {
