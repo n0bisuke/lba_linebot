@@ -18,3 +18,8 @@ now secret add LBABOT_TOKEN xxxx
 ```
 now -e LINE_SECRET=@lbabot_secret -e LINE_TOKEN=@lbabot_token --public
 ```
+
+```
+heroku config:set LINE_SECRET=
+heroku config:set LINE_TOKEN=
+```
