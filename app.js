@@ -34,7 +34,7 @@ async function handleEvent(event) {
 
   if(event.message.text === '応募件数'){
     const data = await getLBA();
-    mes += `--AWARDSページから取得--`;
+    mes += `--AWARDSページから取得-- \n`;
     mes += `合計作品応募数: ${data.listCount} \n`;
     mes += `スキル作品応募数: ${data.skillCount} \n`;
     mes += `BOT作品応募数: ${data.botCount} \n`;
