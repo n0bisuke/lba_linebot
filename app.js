@@ -19,6 +19,10 @@ app.post('/webhook', line.middleware(config), (req, res) => {
       .then((result) => res.json(result));
 });
 
+app.get('/', (req, res) => {
+  res.send(`Node.js Version is ${process.versions.node}`);
+});
+
 const client = new line.Client(config);
 
 async function handleEvent(event) {
